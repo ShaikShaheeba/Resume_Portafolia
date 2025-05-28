@@ -10,8 +10,7 @@ const Home = () => {
   
   const phrases = [
     'FrontEnd Developer',
-     'AI Enthusiast',
-     'Web Developer'
+     'AI Enthusiast',     
   ];
 
   useEffect(() => {
