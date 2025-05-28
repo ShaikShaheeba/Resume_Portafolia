@@ -1,0 +1,234 @@
+:root {
+  /* Color System */
+  --color-primary: #0066CC;
+  --color-primary-light: #4D94FF;
+  --color-primary-dark: #004C99;
+
+  --color-secondary: #5AC8FA;
+  --color-secondary-light: #8EDBFF;
+  --color-secondary-dark: #0091DA;
+
+  --color-accent: #FF9500;
+  --color-accent-light: #FFB84D;
+  --color-accent-dark: #CC7600;
+
+  --color-success: #34C759;
+  --color-warning: #FFCC00;
+  --color-error: #FF3B30;
+
+  /* Neutrals */
+  --color-text-primary: #1D1D1F;
+  --color-text-secondary: #424245;
+  --color-text-tertiary: #86868B;
+  --color-background: #FFFFFF;
+  --color-surface: #F5F5F7;
+  --color-border: #D2D2D7;
+
+  /* Typography */
+  --font-family: 'Inter', system-ui, sans-serif;
+  --font-weight-light: 300;
+  --font-weight-regular: 500;
+  --font-weight-bold: 700;
+
+  /* Spacing system (8px base) */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-7: 56px;
+  --space-8: 64px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.05);
+
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+}
+
+body.dark-mode {
+  --color-text-primary: #F5F5F7;
+  --color-text-secondary: #D2D2D7;
+  --color-text-tertiary: #86868B;
+  --color-background: #1D1D1F;
+  --color-surface: #2C2C2E;
+  --color-border: #424245;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  margin-bottom: var(--space-2);
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+p {
+  margin-bottom: var(--space-2);
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-primary);
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary-light);
+}
+
+img {
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-family);
+  border: none;
+  background: none;
+}
+
+input, textarea {
+  font-family: var(--font-family);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+
+section {
+  padding: var(--space-8) 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+section:nth-child(even) {
+  background-color: var(--color-surface);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: var(--space-6);
+  position: relative;
+  display: inline-block;
+  padding-bottom: var(--space-2);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--color-accent);
+}
+
+.btn {
+  display: inline-block;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-regular);
+  transition: all var(--transition-fast);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  color: white;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.75rem; }
+  h4 { font-size: 1.25rem; }
+  
+  section {
+    padding: var(--space-6) 0;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+  
+  .section-title::after {
+    width: 60px;
+  }
+}

@@ -1,0 +1,248 @@
+.home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.home-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--space-8);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+
+.text-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.greeting {
+  font-size: 1.5rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-2);
+}
+
+.name {
+  font-size: 4rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+}
+
+.profession {
+  display: flex;
+  font-size: 2rem;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+  gap: var(--space-1);
+}
+
+.typed-text {
+  color: var(--color-accent);
+  font-weight: var(--font-weight-bold);
+  min-width: 10px;
+}
+
+.cursor {
+  display: inline-block;
+  width: 3px;
+  background-color: var(--color-accent);
+  margin-left: 2px;
+  animation: blink 1s infinite;
+  height: 2rem;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.intro-text {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-5);
+  max-width: 600px;
+  color: var(--color-text-secondary);
+}
+
+.cta-buttons {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.home-image {
+  display: flex;
+  justify-content: center;
+}
+
+.image-container {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid var(--color-primary-light);
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--transition-medium);
+}
+
+.image-container:hover {
+  transform: scale(1.05);
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.mouse {
+  width: 30px;
+  height: 50px;
+  border: 2px solid var(--color-text-secondary);
+  border-radius: 15px;
+  position: relative;
+}
+
+.wheel {
+  width: 6px;
+  height: 6px;
+  background: var(--color-text-secondary);
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: wheel 1.5s infinite;
+}
+
+@keyframes wheel {
+  0% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(20px);
+    opacity: 0;
+  }
+}
+
+.arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: var(--space-1);
+}
+
+.arrow span {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid var(--color-text-secondary);
+  border-right: 2px solid var(--color-text-secondary);
+  transform: rotate(45deg);
+  margin: -6px 0;
+  animation: arrow 1.5s infinite;
+}
+
+.arrow span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .home-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: var(--space-4);
+  }
+  
+  .text-content {
+    order: 2;
+    align-items: center;
+  }
+  
+  .home-image {
+    order: 1;
+  }
+  
+  .image-container {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .cta-buttons {
+    justify-content: center;
+  }
+
+  .profession {
+    justify-content: center;
+  }
+  
+  .intro-text {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .name {
+    font-size: 3rem;
+  }
+  
+  .profession {
+    font-size: 1.5rem;
+  }
+  
+  .intro-text {
+    font-size: 1rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .image-container {
+    width: 200px;
+    height: 200px;
+  }
+}

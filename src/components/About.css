@@ -1,0 +1,120 @@
+.about-content {
+  display: block;
+  width: 100%;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.about-image {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.about-image::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100%;
+  height: 100%;
+  border: 5px solid var(--color-primary);
+  z-index: -1;
+  border-radius: var(--radius-md);
+}
+
+.about-image img {
+  width: 100%;
+  display: block;
+  transform: translateZ(0);
+  transition: transform var(--transition-medium);
+}
+
+.about-image:hover img {
+  transform: scale(1.05);
+}
+
+.about-text h3 {
+  margin-bottom: var(--space-3);
+  position: relative;
+  display: inline-block;
+  padding-bottom: var(--space-1);
+}
+
+.about-text h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--color-accent);
+}
+
+.about-text p {
+  margin-bottom: var(--space-3);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.personal-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2) var(--space-4);
+  margin: var(--space-4) 0;
+}
+
+.info-item {
+  display: flex;
+  gap: var(--space-1);
+  align-items: center;
+  flex-wrap: nowrap; 
+}
+
+.info-label {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.info-value {
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.about-cta {
+  margin-top: var(--space-4);
+}
+
+@media (max-width: 992px) {
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-image {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .about-text {
+    text-align: center;
+  }
+  
+  .about-text h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .personal-info {
+    justify-content: center;
+    text-align: left;
+  }
+}
+
+@media (max-width: 576px) {
+  .personal-info {
+    grid-template-columns: 1fr;
+  }
+}
