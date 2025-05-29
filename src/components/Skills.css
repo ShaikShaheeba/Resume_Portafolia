@@ -21,25 +21,53 @@
   background-color: var(--color-accent);
 }
 
+/* 
+🔧 Flex-wrap and responsiveness for category buttons 
 .skills-categories {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
   margin: 1.5rem 0;
+  padding: 0 1rem; /* Prevents touching screen edges 
+  box-sizing: border-box;
+} */
+
+.skills-categories {
+  display: flex;
+  flex-wrap: wrap;             /* Allow wrapping but in controlled layout */
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  max-width: 600px;            /* 👈 Prevents excessive width */
+  margin-left: auto;
+  margin-right: auto;
+} 
+
+.category-button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  text-align: center;
+  white-space: nowrap;        /* Keeps text on one line */
+  flex-shrink: 0;             /* Prevents squishing */
 }
 
-/* Base button styles */
+
+/*
 .category-button {
-  background-color: var(--color-surface);  /* ✅ changed from background */
+  background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   padding: 0.5rem 1rem;
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
   color: var(--color-text);
-}
-
-/* Light mode */
+  white-space: nowrap;
+} */
+ 
+/* ✅ Light mode */
 body.light-mode .category-button {
   background-color: white;
   color: black;
@@ -52,7 +80,7 @@ body.light-mode .category-button.active {
   color: white;
 }
 
-/* Dark mode */
+/* ✅ Dark mode */
 body.dark-mode .category-button {
   background-color: black;
   color: white;
@@ -65,11 +93,15 @@ body.dark-mode .category-button.active {
   color: white;
 }
 
+/* 🧱 Skills container */
 .skills-container {
   max-width: 800px;
   margin: 0 auto;
+  padding: 0 1rem; /* Prevents overflow on small screens */
+  box-sizing: border-box;
 }
 
+/* 👇 Stack layout for mobile */
 .skills-grid {
   display: flex;
   flex-direction: column;
@@ -79,12 +111,16 @@ body.dark-mode .category-button.active {
 .skill-item {
   width: 100%;
   max-width: 600px;
+  margin: 0 auto;
 }
 
 .skill-info {
   display: flex;
   justify-content: space-between;
   margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.95rem;
 }
 
 .skill-bar {
@@ -99,4 +135,9 @@ body.dark-mode .category-button.active {
   background: var(--color-accent);
   width: 0;
   transition: width 1s ease-in-out;
+}
+
+/* ✅ Prevent horizontal scroll globally */
+body, html {
+  overflow-x: hidden;
 }
