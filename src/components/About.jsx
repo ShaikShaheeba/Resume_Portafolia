@@ -7,7 +7,7 @@ const About = () => {
         <h2 className="section-title">About Me</h2>
         
         <div className="about-content">
-          <div className="about-text">
+          <div className="about-text"> 
            {/* <h3 className="fade-in">Who I Am</h3> */}
             <p className="fade-in delay-1">
               A recent B.Tech graduate in Computer Science and Engineering from RGUKT, Nuzvid, with hands-on experience in Java Full Stack Development, Machine Learning projects, and strong problem-solving skills.
